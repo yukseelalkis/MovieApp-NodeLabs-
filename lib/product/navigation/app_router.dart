@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:nodelabscase/feature/view/adding_profile_photo_view.dart';
 import 'package:nodelabscase/feature/view/auth/auth_wrapper_view.dart';
 import 'package:nodelabscase/feature/view/auth/login_view.dart';
@@ -8,6 +9,7 @@ import 'package:nodelabscase/feature/view/dashboard_wrapper_view.dart';
 import 'package:nodelabscase/feature/view/home_view.dart';
 import 'package:nodelabscase/feature/view/profile_view.dart';
 import 'package:nodelabscase/feature/view/profile_wrapper_view.dart';
+import 'package:nodelabscase/feature/viewmodel/profile_view_model.dart';
 
 part 'app_router.gr.dart';
 

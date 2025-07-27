@@ -1,9 +1,11 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:common/common.dart';
 import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:gen/gen.dart';
+import 'package:http_parser/http_parser.dart';
 
 import 'package:logger/logger.dart';
 import 'package:nodelabscase/product/init/cache/cache_manager.dart';
@@ -246,6 +248,61 @@ final class CommonService with CommonServiceMixin {
       switch (responseCode) {
         case HttpResult.success:
           return ApiResponse<dynamic>.success(data: responseBody);
+
+        default:
+          return ApiResponse.failure(
+            data: responseBody,
+            result: responseCode,
+            error: LocaleKeys.error_unknown_response_type.tr(),
+          );
+      }
+    } catch (e) {
+      Logger().e(e);
+      return ApiResponse.failure(
+        error: e.toString(),
+        result: HttpResult.unknown,
+      );
+    }
+  }
+
+  Future<ApiResponse<T>> uploadFile<T>({
+    required String domain,
+    required File file,
+    required String fileKey,
+    T Function(Map<String, dynamic>)? fromJson,
+  }) async {
+    try {
+      final fileName = file.path.split('/').last;
+
+      final formData = FormData.fromMap({
+        fileKey: await MultipartFile.fromFile(
+          file.path,
+          filename: fileName,
+          contentType: MediaType(
+            'image',
+            'jpeg',
+          ),
+        ),
+      });
+
+      final response = await _dio.post<dynamic>(
+        '$_baseUrl$domain',
+        data: formData,
+        options: Options(
+          contentType: 'multipart/form-data',
+        ),
+      );
+
+      final responseCode = HttpResult.fromStatusCode(response.statusCode ?? -1);
+      final responseBody = response.data;
+
+      switch (responseCode) {
+        case HttpResult.success:
+          if (fromJson != null && responseBody is Map<String, dynamic>) {
+            return ApiResponse.success(data: fromJson(responseBody));
+          } else {
+            return ApiResponse.success(data: responseBody);
+          }
 
         default:
           return ApiResponse.failure(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:common/common.dart';
@@ -33,9 +35,9 @@ final class _ProfileViewState extends State<ProfileView> with ProfileViewMixin {
             child: Padding(
           padding:
               EdgeInsets.symmetric(horizontal: PaddingManager.normalPadding(context)),
-          child: const Column(
+          child: Column(
             children: [
-              _ProfileListTile(),
+              _ProfileListTile(profileViewModel: profileViewModel),
             ],
           ),
         )),

@@ -1,12 +1,15 @@
 part of '../view/profile_view.dart';
 
 final class _ProfileListTile extends StatelessWidget {
-  const _ProfileListTile();
+  const _ProfileListTile({required this.profileViewModel});
+
+  final ProfileViewModel profileViewModel;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileViewModel, ProfileState>(
       builder: (context, state) {
+        log('URL: ${state.profile?.photoUrl}');
         return ListTile(
           leading: CircleAvatar(
             radius: BorderRadiusManager.extraMoreBorderRadius.topLeft.x,
@@ -35,7 +38,8 @@ final class _ProfileListTile extends StatelessWidget {
             height: context.deviceHeight * 0.045,
             width: context.deviceWidth * 0.3,
             onPressed: () async {
-              await context.router.push(const AddingProfilePhotoRoute());
+              await context.router
+                  .push(AddingProfilePhotoRoute(profileViewModel: profileViewModel));
             },
             child: Text(
               LocaleKeys.profile_add_photo,

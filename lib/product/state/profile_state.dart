@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:gen/gen.dart';
 import 'package:nodelabscase/product/state/base/base_state.dart';
 
@@ -6,6 +8,7 @@ final class ProfileState extends BaseState {
   /// Constructor
   const ProfileState({
     this.profile,
+    this.profilePhoto,
     super.isLoading,
   });
 
@@ -14,14 +17,17 @@ final class ProfileState extends BaseState {
     ..addAll([
       isLoading,
       profile,
+      profilePhoto,
     ]);
 
   final ProfileData? profile;
+  final File? profilePhoto;
 
   @override
-  ProfileState copyWith({bool? isLoading, ProfileData? profile}) {
+  ProfileState copyWith({bool? isLoading, ProfileData? profile, File? profilePhoto}) {
     return ProfileState(
       profile: profile ?? this.profile,
+      profilePhoto: profilePhoto ?? this.profilePhoto,
       isLoading: isLoading ?? this.isLoading,
     );
   }

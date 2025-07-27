@@ -13,3 +13,5 @@ export 'favorite_data.dart';
 export 'favorite_response.dart';
 export 'profile_data.dart';
 export 'profile_response.dart';
+export 'photo_upload_data.dart';
+export 'photo_upload_response.dart';

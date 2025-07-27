@@ -11,10 +11,18 @@ part of 'app_router.dart';
 
 /// generated route for
 /// [AddingProfilePhotoView]
-class AddingProfilePhotoRoute extends PageRouteInfo<void> {
-  const AddingProfilePhotoRoute({List<PageRouteInfo>? children})
-      : super(
+class AddingProfilePhotoRoute
+    extends PageRouteInfo<AddingProfilePhotoRouteArgs> {
+  AddingProfilePhotoRoute({
+    Key? key,
+    required ProfileViewModel profileViewModel,
+    List<PageRouteInfo>? children,
+  }) : super(
           AddingProfilePhotoRoute.name,
+          args: AddingProfilePhotoRouteArgs(
+            key: key,
+            profileViewModel: profileViewModel,
+          ),
           initialChildren: children,
         );
 
@@ -23,9 +31,29 @@ class AddingProfilePhotoRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const AddingProfilePhotoView();
+      final args = data.argsAs<AddingProfilePhotoRouteArgs>();
+      return AddingProfilePhotoView(
+        key: args.key,
+        profileViewModel: args.profileViewModel,
+      );
     },
   );
+}
+
+class AddingProfilePhotoRouteArgs {
+  const AddingProfilePhotoRouteArgs({
+    this.key,
+    required this.profileViewModel,
+  });
+
+  final Key? key;
+
+  final ProfileViewModel profileViewModel;
+
+  @override
+  String toString() {
+    return 'AddingProfilePhotoRouteArgs{key: $key, profileViewModel: $profileViewModel}';
+  }
 }
 
 /// generated route for

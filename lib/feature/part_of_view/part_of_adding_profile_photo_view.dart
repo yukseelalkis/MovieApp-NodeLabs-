@@ -11,28 +11,41 @@ final class PhotoUploadButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      borderRadius: BorderRadiusManager.moreBorderRadius,
-      child: Container(
-        width: context.deviceWidth * 0.4,
-        height: context.deviceHeight * 0.18,
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.1),
+    return BlocSelector<ProfileViewModel, ProfileState, File?>(
+      selector: (state) {
+        return state.profilePhoto;
+      },
+      builder: (_, profilePhoto) {
+        return InkWell(
+          onTap: onPressed,
           borderRadius: BorderRadiusManager.moreBorderRadius,
-          border: Border.all(
-            color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.2),
-            width: context.deviceWidth * 0.001,
+          child: Container(
+            clipBehavior: Clip.antiAlias,
+            width: context.deviceWidth * 0.4,
+            height: context.deviceHeight * 0.18,
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.1),
+              borderRadius: BorderRadiusManager.moreBorderRadius,
+              border: Border.all(
+                color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.2),
+                width: context.deviceWidth * 0.001,
+              ),
+            ),
+            child: profilePhoto == null
+                ? Icon(
+                    Icons.add,
+                    color: Theme.of(context).colorScheme.primary,
+                    size: context.deviceWidth * 0.1,
+                  )
+                : Image.file(
+                    height: double.infinity,
+                    width: double.infinity,
+                    profilePhoto,
+                    fit: BoxFit.cover,
+                  ),
           ),
-        ),
-        child: Center(
-          child: Icon(
-            Icons.add,
-            color: Theme.of(context).colorScheme.primary,
-            size: context.deviceWidth * 0.1,
-          ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
