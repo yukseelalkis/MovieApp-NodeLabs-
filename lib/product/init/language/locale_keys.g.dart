@@ -52,6 +52,8 @@ abstract class  LocaleKeys {
   static const auth_i_have_already_have_an_account = 'auth.i_have_already_have_an_account';
   static const auth = 'auth';
   static const common_continue = 'common.continue';
+  static const common_show_more = 'common.show_more';
+  static const common_show_less = 'common.show_less';
   static const common = 'common';
   static const profile_profile_detail = 'profile.profile_detail';
   static const profile_upload_photo = 'profile.upload_photo';
@@ -59,6 +61,7 @@ abstract class  LocaleKeys {
   static const profile = 'profile';
   static const error_your_preferences_did_not_init_now = 'error.your_preferences_did_not_init_now';
   static const error_unknown_response_type = 'error.unknown_response_type';
+  static const error_could_not_find_movie = 'error.could_not_find_movie';
   static const error = 'error';
 
 }

@@ -9,4 +9,7 @@ final class BorderRadiusManager {
 
   /// [moreBorderRadius] is border radius for button as `20`
   static final BorderRadius moreBorderRadius = BorderRadius.circular(20);
+
+  /// [extraMoreBorderRadius] is border radius for card as `30`
+  static final BorderRadius extraMoreBorderRadius = BorderRadius.circular(30);
 }

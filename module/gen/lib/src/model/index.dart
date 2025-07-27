@@ -6,3 +6,8 @@ export 'response.dart';
 export 'signup_request.dart';
 export 'signup_response.dart';
 export 'user.dart';
+export 'movie_list.dart';
+export 'movie_data.dart';
+export 'movies.dart';
+export 'favorite_data.dart';
+export 'favorite_response.dart';

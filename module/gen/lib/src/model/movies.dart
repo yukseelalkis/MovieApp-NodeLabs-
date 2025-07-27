@@ -6,142 +6,142 @@ part 'movies.g.dart';
 
 @JsonSerializable()
 @immutable
-final class Movies extends BaseModel<Movies> with EquatableMixin {
+final class Movie extends BaseModel<Movie> with EquatableMixin {
   final String? id;
-  final String? title;
-  final String? year;
-  final String? rated;
-  final String? released;
-  final String? runtime;
-  final String? genre;
-  final String? director;
-  final String? writer;
-  final String? actors;
-  final String? plot;
-  final String? language;
-  final String? country;
-  final String? awards;
-  final String? poster;
-  final String? metascore;
+  final String? Title;
+  final String? Year;
+  final String? Rated;
+  final String? Released;
+  final String? Runtime;
+  final String? Genre;
+  final String? Director;
+  final String? Writer;
+  final String? Actors;
+  final String? Plot;
+  final String? Language;
+  final String? Country;
+  final String? Awards;
+  final String? Poster;
+  final String? Metascore;
   final String? imdbRating;
   final String? imdbVotes;
   final String? imdbID;
-  final String? type;
-  final String? response;
-  final List<String>? images;
-  final bool? comingSoon;
+  final String? Type;
+  final String? Response;
+  final List<String>? Images;
+  final bool? ComingSoon;
   final bool? isFavorite;
 
-  Movies({
+  Movie({
     this.id,
-    this.title,
-    this.year,
-    this.rated,
-    this.released,
-    this.runtime,
-    this.genre,
-    this.director,
-    this.writer,
-    this.actors,
-    this.plot,
-    this.language,
-    this.country,
-    this.awards,
-    this.poster,
-    this.metascore,
+    this.Title,
+    this.Year,
+    this.Rated,
+    this.Released,
+    this.Runtime,
+    this.Genre,
+    this.Director,
+    this.Writer,
+    this.Actors,
+    this.Plot,
+    this.Language,
+    this.Country,
+    this.Awards,
+    this.Poster,
+    this.Metascore,
     this.imdbRating,
     this.imdbVotes,
     this.imdbID,
-    this.type,
-    this.response,
-    this.images,
-    this.comingSoon,
+    this.Type,
+    this.Response,
+    this.Images,
+    this.ComingSoon,
     this.isFavorite,
   });
 
-  factory Movies.fromJson(Map<String, dynamic> json) => _$MoviesFromJson(json);
+  factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$MoviesToJson(this);
+  Map<String, dynamic> toJson() => _$MovieToJson(this);
 
   @override
   List<Object?> get props => [
         id,
-        title,
-        year,
-        rated,
-        released,
-        runtime,
-        genre,
-        director,
-        writer,
-        actors,
-        plot,
-        language,
-        country,
-        awards,
-        poster,
-        metascore,
+        Title,
+        Year,
+        Rated,
+        Released,
+        Runtime,
+        Genre,
+        Director,
+        Writer,
+        Actors,
+        Plot,
+        Language,
+        Country,
+        Awards,
+        Poster,
+        Metascore,
         imdbRating,
         imdbVotes,
         imdbID,
-        type,
-        response,
-        images,
-        comingSoon,
+        Type,
+        Response,
+        Images,
+        ComingSoon,
         isFavorite
       ];
 
-  Movies copyWith({
+  Movie copyWith({
     String? id,
-    String? title,
-    String? year,
-    String? rated,
-    String? released,
-    String? runtime,
-    String? genre,
-    String? director,
-    String? writer,
-    String? actors,
-    String? plot,
-    String? language,
-    String? country,
-    String? awards,
-    String? poster,
-    String? metascore,
+    String? Title,
+    String? Year,
+    String? Rated,
+    String? Released,
+    String? Runtime,
+    String? Genre,
+    String? Director,
+    String? Writer,
+    String? Actors,
+    String? Plot,
+    String? Language,
+    String? Country,
+    String? Awards,
+    String? Poster,
+    String? Metascore,
     String? imdbRating,
     String? imdbVotes,
     String? imdbID,
-    String? type,
-    String? response,
-    List<String>? images,
-    bool? comingSoon,
+    String? Type,
+    String? Response,
+    List<String>? Images,
+    bool? ComingSoon,
     bool? isFavorite,
   }) {
-    return Movies(
+    return Movie(
       id: id ?? this.id,
-      title: title ?? this.title,
-      year: year ?? this.year,
-      rated: rated ?? this.rated,
-      released: released ?? this.released,
-      runtime: runtime ?? this.runtime,
-      genre: genre ?? this.genre,
-      director: director ?? this.director,
-      writer: writer ?? this.writer,
-      actors: actors ?? this.actors,
-      plot: plot ?? this.plot,
-      language: language ?? this.language,
-      country: country ?? this.country,
-      awards: awards ?? this.awards,
-      poster: poster ?? this.poster,
-      metascore: metascore ?? this.metascore,
+      Title: Title ?? this.Title,
+      Year: Year ?? this.Year,
+      Rated: Rated ?? this.Rated,
+      Released: Released ?? this.Released,
+      Runtime: Runtime ?? this.Runtime,
+      Genre: Genre ?? this.Genre,
+      Director: Director ?? this.Director,
+      Writer: Writer ?? this.Writer,
+      Actors: Actors ?? this.Actors,
+      Plot: Plot ?? this.Plot,
+      Language: Language ?? this.Language,
+      Country: Country ?? this.Country,
+      Awards: Awards ?? this.Awards,
+      Poster: Poster ?? this.Poster,
+      Metascore: Metascore ?? this.Metascore,
       imdbRating: imdbRating ?? this.imdbRating,
       imdbVotes: imdbVotes ?? this.imdbVotes,
       imdbID: imdbID ?? this.imdbID,
-      type: type ?? this.type,
-      response: response ?? this.response,
-      images: images ?? this.images,
-      comingSoon: comingSoon ?? this.comingSoon,
+      Type: Type ?? this.Type,
+      Response: Response ?? this.Response,
+      Images: Images ?? this.Images,
+      ComingSoon: ComingSoon ?? ComingSoon,
       isFavorite: isFavorite ?? this.isFavorite,
     );
   }

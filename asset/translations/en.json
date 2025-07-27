@@ -48,7 +48,9 @@
     "i_have_already_have_an_account": "I already have an account"
   },
   "common": {
-    "continue": "Continue"
+    "continue": "Continue",
+    "show_more": "Show More",
+    "show_less": "Show Less"
   },
   "profile": {
     "profile_detail": "Profile Detail",
@@ -57,6 +59,7 @@
   },
   "error": {
     "your_preferences_did_not_init_now": "Your preferences did not initialize now",
-    "unknown_response_type": "An unknown response type was received"
+    "unknown_response_type": "An unknown response type was received",
+    "could_not_find_movie": "Could not find movie"
   }
 }

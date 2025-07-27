@@ -9,7 +9,7 @@ part 'movie_data.g.dart';
 @JsonSerializable()
 @immutable
 final class MovieData extends BaseModel<MovieData> with EquatableMixin {
-  final List<Movies>? movies;
+  final List<Movie>? movies;
   final Pagination? pagination;
 
   MovieData({
@@ -26,7 +26,7 @@ final class MovieData extends BaseModel<MovieData> with EquatableMixin {
   List<Object?> get props => [movies, pagination];
 
   MovieData copyWith({
-    List<Movies>? movies,
+    List<Movie>? movies,
     Pagination? pagination,
   }) {
     return MovieData(

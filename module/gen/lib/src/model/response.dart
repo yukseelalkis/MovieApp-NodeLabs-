@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:equatable/equatable.dart';
 part 'response.g.dart';
 
 @JsonSerializable()
+@immutable
 final class Response extends BaseModel<Response> with EquatableMixin {
   final int? code;
   final String? message;

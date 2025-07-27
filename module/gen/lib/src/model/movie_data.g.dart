@@ -8,7 +8,7 @@ part of 'movie_data.dart';
 
 MovieData _$MovieDataFromJson(Map<String, dynamic> json) => MovieData(
       movies: (json['movies'] as List<dynamic>?)
-          ?.map((e) => Movies.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Movie.fromJson(e as Map<String, dynamic>))
           .toList(),
       pagination: json['pagination'] == null
           ? null

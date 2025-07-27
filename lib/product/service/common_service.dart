@@ -1,10 +1,14 @@
+import 'dart:developer';
+
 import 'package:common/common.dart';
 import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:gen/gen.dart';
 
 import 'package:logger/logger.dart';
+import 'package:nodelabscase/product/init/cache/cache_manager.dart';
 import 'package:nodelabscase/product/init/language/locale_keys.g.dart';
+import 'package:nodelabscase/product/mixin/cache_manager_mixin.dart';
 import 'package:nodelabscase/product/service/mixin/common_service_mixin.dart';
 import 'package:nodelabscase/product/utility/constants/enums/status_code.dart';
 import 'package:nodelabscase/product/utility/response/api_response.dart';
@@ -15,6 +19,9 @@ import 'package:nodelabscase/product/utility/response/api_response.dart';
 final class CommonService with CommonServiceMixin {
   CommonService._() {
     _baseUrl = DevEnv().baseUrl;
+    _token = CacheManager.instance.getString(CacheAllowListEnum.token.name);
+
+    log('token: $_token');
 
     final baseOptions = BaseOptions(
       baseUrl: _baseUrl,
@@ -34,7 +41,7 @@ final class CommonService with CommonServiceMixin {
       InterceptorsWrapper(
         onRequest: (options, handler) {
           if (_token.hasValue) {
-            options.headers['token'] = _token;
+            options.headers['Authorization'] = _token;
           }
           return handler.next(options);
         },
@@ -49,50 +56,47 @@ final class CommonService with CommonServiceMixin {
   late String _baseUrl;
   late Dio _dio;
 
-  // /// [getModel] method is generic method that is used to get data from the API.
-  // /// [ApiResponse] is returned based on the response.
-  // Future<ApiResponse<dynamic>> getModel<T extends BaseModel<T>>({
-  //   required String domain,
-  //   required T model,
-  //   Map<String, dynamic>? queryParameters,
-  // }) async {
-  //   try {
-  //     final response = await _dio.get<dynamic>(
-  //       '$_baseUrl$domain',
-  //       queryParameters: queryParameters,
-  //     );
-  //     final responseCode = HttpResult.fromStatusCode(response.statusCode ?? -1);
-  //     final responseBody = response.data;
+  Future<ApiResponse<T>> getModel<T>({
+    required String domain,
+    required T Function(Map<String, dynamic>) fromJson,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      final response = await _dio.get<dynamic>(
+        '$_baseUrl$domain',
+        queryParameters: queryParameters,
+      );
+      final responseCode = HttpResult.fromStatusCode(response.statusCode ?? -1);
+      final responseBody = response.data;
 
-  //     switch (responseCode) {
-  //       case HttpResult.success:
-  //         if (responseBody is List) {
-  //           final data = responseBody
-  //               .map((e) => model.fromJson(e as Map<String, dynamic>))
-  //               .toList();
-  //           return ApiResponse<List<T>>.success(data: data);
-  //         } else if (responseBody is Map) {
-  //           final data = model.fromJson(responseBody.cast<String, dynamic>());
-  //           return ApiResponse<T>.success(data: data);
-  //         }
+      switch (responseCode) {
+        case HttpResult.success:
+          if (responseBody is List) {
+            final data =
+                responseBody.map<T>((e) => fromJson(e as Map<String, dynamic>)).toList();
+            return ApiResponse<T>.success(data: data as T);
+          } else if (responseBody is Map) {
+            final data = fromJson(responseBody.cast<String, dynamic>());
+            return ApiResponse<T>.success(data: data);
+          }
 
-  //         return ApiResponse.failure(
-  //           data: responseBody,
-  //           result: HttpResult.unknown,
-  //           error: LocaleKeys.error_unknown_response_type.tr(),
-  //         );
+          return ApiResponse.failure(
+            data: responseBody,
+            result: HttpResult.unknown,
+            error: LocaleKeys.error_unknown_response_type.tr(),
+          );
 
-  //       default:
-  //         return ApiResponse.failure(data: responseBody, result: responseCode);
-  //     }
-  //   } catch (e) {
-  //     Logger().e(e);
-  //     return ApiResponse.failure(
-  //       error: e.toString(),
-  //       result: HttpResult.unknown,
-  //     );
-  //   }
-  // }
+        default:
+          return ApiResponse.failure(data: responseBody, result: responseCode);
+      }
+    } catch (e) {
+      Logger().e(e);
+      return ApiResponse.failure(
+        error: e.toString(),
+        result: HttpResult.unknown,
+      );
+    }
+  }
 
   /// [postModel] method is a generic method that is used to send data to the API.
   /// [ApiResponse] is returned based on the response.
@@ -150,9 +154,11 @@ final class CommonService with CommonServiceMixin {
   }
 
   /// [postWithoutModel] method is a generic method that is
-  /// used to send data to the API.
-  Future<ApiResponse<dynamic>> postWithoutModel({
+  /// used to send a POST request to the API **without a body/model**,
+  /// but expects a parsed response of type [T].
+  Future<ApiResponse<T>> postWithoutModel<T>({
     required String domain,
+    required T Function(Map<String, dynamic>) fromJson,
   }) async {
     try {
       final response = await _dio.post<dynamic>(
@@ -163,7 +169,15 @@ final class CommonService with CommonServiceMixin {
 
       switch (responseCode) {
         case HttpResult.success:
-          return ApiResponse<dynamic>.success(data: responseBody);
+          if (responseBody is Map) {
+            final data = fromJson(responseBody.cast<String, dynamic>());
+            return ApiResponse<T>.success(data: data);
+          }
+          return ApiResponse.failure(
+            data: responseBody,
+            result: HttpResult.unknown,
+            error: LocaleKeys.error_unknown_response_type.tr(),
+          );
 
         default:
           return ApiResponse.failure(

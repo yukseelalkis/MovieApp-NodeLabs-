@@ -49,7 +49,9 @@
     "i_have_already_have_an_account": "Zaten hesabım var"
   },
   "common": {
-    "continue": "Devam Et"
+    "continue": "Devam Et",
+    "show_more": "Daha Fazla Göster",
+    "show_less": "Daha Az Göster"
   },
   "profile": {
     "profile_detail": "Profil Detayı",
@@ -58,6 +60,7 @@
   },
   "error": {
     "your_preferences_did_not_init_now": "Tercihleriniz şu anda başlatılmadı",
-    "unknown_response_type": "Bilinmeyen bir yanıt türü alındı"
+    "unknown_response_type": "Bilinmeyen bir yanıt türü alındı",
+    "could_not_find_movie": "Film bulunamadı"
   }
 }
