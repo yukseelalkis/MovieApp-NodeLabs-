@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:common/common.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
@@ -7,10 +8,13 @@ import 'package:nodelabscase/feature/view/mixin/auth/auth_common_view_mixin.dart
 import 'package:nodelabscase/feature/view/mixin/auth/sign_up_view_mixin.dart';
 import 'package:nodelabscase/feature/view/mixin/common_view_mixin.dart';
 import 'package:nodelabscase/product/init/language/locale_keys.g.dart';
+import 'package:nodelabscase/product/navigation/app_router.dart';
 import 'package:nodelabscase/product/utility/extension/list_gutter_extension.dart';
 
 part '../../part_of_view/part_of_signup_view.dart';
 
+/// [SignUp] is a class that contains the login view.
+@RoutePage()
 final class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
 
@@ -148,7 +152,11 @@ final class _SignUpViewState extends State<SignUpView>
                             const Text(LocaleKeys.auth_i_have_already_have_an_account)
                                 .tr(),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                context.router.popUntil(
+                                  (route) => route.settings.name == LoginRoute.name,
+                                );
+                              },
                               child: Text(
                                 LocaleKeys.auth_login.tr(),
                               ),

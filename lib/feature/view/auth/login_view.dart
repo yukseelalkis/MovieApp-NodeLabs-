@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:common/common.dart';
@@ -5,10 +6,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nodelabscase/feature/view/mixin/auth/auth_common_view_mixin.dart';
 import 'package:nodelabscase/feature/view/mixin/auth/login_view_mixin.dart';
 import 'package:nodelabscase/feature/view/mixin/common_view_mixin.dart';
-import 'package:nodelabscase/feature/view/widget/auth_label.dart';
 import 'package:nodelabscase/product/init/language/locale_keys.g.dart';
+import 'package:nodelabscase/product/navigation/app_router.dart';
 import 'package:nodelabscase/product/utility/extension/list_gutter_extension.dart';
 
+/// [LoginView] is a class that contains the login view.
+@RoutePage()
 final class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
@@ -73,10 +76,6 @@ final class _LoginViewState extends State<LoginView>
                           hintText: LocaleKeys.auth_password_placeholder.tr(),
                           keyboardType: TextInputType.emailAddress,
                           textInputAction: TextInputAction.next,
-                          suffixIcon: IconButton(
-                            icon: const Icon(Icons.visibility_off_outlined),
-                            onPressed: () {},
-                          ),
                           obscureText: true,
                           validator: passwordValidator,
                         ),
@@ -129,7 +128,9 @@ final class _LoginViewState extends State<LoginView>
                           children: [
                             const Text(LocaleKeys.auth_do_not_have_an_account).tr(),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () async {
+                                await context.router.push(const SignUpRoute());
+                              },
                               child: Text(
                                 LocaleKeys.auth_register.tr(),
                               ),

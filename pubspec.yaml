@@ -15,8 +15,18 @@ dependencies:
   font_awesome_flutter: ^10.8.0
   google_fonts: ^6.2.1
 
+  # ** Core Dependencies **
+  equatable: ^2.0.7
+  shared_preferences: ^2.5.3
+
+  # ** Navigation **
+  auto_route: ^9.3.0
+
   # ** Config **
   easy_localization: ^3.0.7
+
+  # ** State **
+  flutter_bloc: ^9.1.1
 
   # ** Private Packages **
   common:
@@ -32,8 +42,8 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^2.4.13
-
   flutter_lints: ^4.0.0
+  auto_route_generator: ^9.0.0
 
 flutter:
   uses-material-design: true
