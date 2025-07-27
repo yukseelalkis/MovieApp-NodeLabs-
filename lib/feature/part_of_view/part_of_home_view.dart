@@ -197,16 +197,17 @@ class _FavoriteButtonState extends State<_FavoriteButton> {
           ),
           child: BlocSelector<HomeViewModel, HomeState, bool>(
             selector: (state) {
-              return state;
+              return state.isFavorite;
             },
             builder: (context, state) {
               return IconButton(
                 onPressed: () async {
                   await widget.homeViewModel.postFavoriteById(id: widget.id);
+                  widget.homeViewModel.toggleFavorite();
                 },
                 icon: Icon(
                   Icons.favorite,
-                  color: widget.isFavorite
+                  color: widget.isFavorite || state
                       ? Theme.of(context).colorScheme.tertiary
                       : Theme.of(context).colorScheme.primary,
                   size: context.deviceWidth * 0.06,

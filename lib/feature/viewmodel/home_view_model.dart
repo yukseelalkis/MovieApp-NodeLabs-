@@ -25,6 +25,10 @@ final class HomeViewModel extends BaseCubit<HomeState> {
     emit(state.copyWith(isExpanded: isExpanded));
   }
 
+  void toggleFavorite() {
+    emit(state.copyWith(isFavorite: !state.isFavorite));
+  }
+
   Future<void> getMovieList({int page = 1}) async {
     if (state.isLoading) return;
     _changeLoading();

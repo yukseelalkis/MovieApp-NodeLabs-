@@ -7,6 +7,7 @@ final class HomeState extends BaseState {
   const HomeState({
     this.movieList,
     this.isExpanded = false,
+    this.isFavorite = false,
     super.isLoading,
   });
 
@@ -16,6 +17,7 @@ final class HomeState extends BaseState {
       isLoading,
       isExpanded,
       movieList,
+      isFavorite,
     ]);
 
   /// [isExpanded] is the expanded state of the home view.
@@ -24,14 +26,17 @@ final class HomeState extends BaseState {
   /// [movieList] is the list of movies fetched from the API.
   final MovieList? movieList;
 
-  ///
+  /// [isFavorite] is the favorite state of the movie.
+  final bool isFavorite;
 
   @override
-  HomeState copyWith({bool? isLoading, bool? isExpanded, MovieList? movieList}) {
+  HomeState copyWith(
+      {bool? isLoading, bool? isExpanded, MovieList? movieList, bool? isFavorite}) {
     return HomeState(
       isLoading: isLoading ?? this.isLoading,
       isExpanded: isExpanded ?? this.isExpanded,
       movieList: movieList ?? this.movieList,
+      isFavorite: isFavorite ?? this.isFavorite,
     );
   }
 }
