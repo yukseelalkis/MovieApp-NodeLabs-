@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:nodelabscase/product/init/language/locale_keys.g.dart';
-import 'package:nodelabscase/product/utility/constants/lawai_regexp.dart';
+import 'package:nodelabscase/product/utility/constants/nodelabscase_regexp.dart';
 
 /// [AuthCommonViewMixin] is a [State] mixin that contains the login view logic.
 mixin AuthCommonViewMixin<T extends StatefulWidget> on State<T> {

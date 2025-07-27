@@ -64,6 +64,7 @@
     "your_preferences_did_not_init_now": "Your preferences did not initialize now",
     "unknown_response_type": "An unknown response type was received",
     "could_not_find_movie": "Could not find movie",
-    "could_not_find_favorite_movies": "Could not find favorite movies"
+    "could_not_find_favorite_movies": "Could not find favorite movies",
+    "unknown_error": "An unknown error occurred"
   }
 }

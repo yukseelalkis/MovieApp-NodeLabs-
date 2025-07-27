@@ -65,6 +65,7 @@
     "your_preferences_did_not_init_now": "Tercihleriniz şu anda başlatılmadı",
     "unknown_response_type": "Bilinmeyen bir yanıt türü alındı",
     "could_not_find_movie": "Film bulunamadı",
-    "could_not_find_favorite_movies": "Favori filmler bulunamadı"
+    "could_not_find_favorite_movies": "Favori filmler bulunamadı",
+    "unknown_error": "Bilinmeyen bir hata oluştu"
   }
 }

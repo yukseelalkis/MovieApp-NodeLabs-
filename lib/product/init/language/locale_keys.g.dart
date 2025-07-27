@@ -66,6 +66,7 @@ abstract class  LocaleKeys {
   static const error_unknown_response_type = 'error.unknown_response_type';
   static const error_could_not_find_movie = 'error.could_not_find_movie';
   static const error_could_not_find_favorite_movies = 'error.could_not_find_favorite_movies';
+  static const error_unknown_error = 'error.unknown_error';
   static const error = 'error';
 
 }
