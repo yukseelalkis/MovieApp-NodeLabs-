@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:nodelabscase/feature/view/auth/sign_up_view.dart';
+import 'package:nodelabscase/feature/viewmodel/signup_view_model.dart';
 import 'package:nodelabscase/product/init/language/locale_keys.g.dart';
 import 'package:common/common.dart';
 
@@ -9,8 +10,11 @@ mixin SignUpViewMixin on State<SignUpView> {
   /// [_signupFormKey] is the key for the login form.
   late final GlobalKey<FormState> _signupFormKey;
 
-  /// [_fullnamenameController] is the controller for the email text field.
-  late final TextEditingController _fullnamenameController;
+  /// [_signUpViewModel] is the view model for the sign up view.
+  late final SignUpViewModel _signUpViewModel;
+
+  /// [_fullnameController] is the controller for the fullname text field.
+  late final TextEditingController _fullnameController;
 
   /// [_confirmPasswordController] is the controller for the password text field.
   late final TextEditingController _confirmPasswordController;
@@ -18,8 +22,11 @@ mixin SignUpViewMixin on State<SignUpView> {
   /// [signupFormKey] is the key for the login form.
   GlobalKey<FormState> get signupFormKey => _signupFormKey;
 
+  /// [signupViewModel] is the view model for the sign up view.
+  SignUpViewModel get signupViewModel => _signUpViewModel;
+
   /// [fullnameController] is the controller for the fullname text field.
-  TextEditingController get fullnameController => _fullnamenameController;
+  TextEditingController get fullnameController => _fullnameController;
 
   /// [confirmPasswordController] is the controller for the password text field.
   TextEditingController get confirmPasswordController => _confirmPasswordController;
@@ -28,13 +35,14 @@ mixin SignUpViewMixin on State<SignUpView> {
   void initState() {
     super.initState();
     _signupFormKey = GlobalKey<FormState>();
-    _fullnamenameController = TextEditingController();
+    _signUpViewModel = SignUpViewModel();
+    _fullnameController = TextEditingController();
     _confirmPasswordController = TextEditingController();
   }
 
   @override
   void dispose() {
-    _fullnamenameController.dispose();
+    _fullnameController.dispose();
     _confirmPasswordController.dispose();
     _signupFormKey.currentState?.dispose();
     super.dispose();

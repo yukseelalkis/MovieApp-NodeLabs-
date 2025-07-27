@@ -10,8 +10,10 @@ import 'package:gen/gen.dart';
 import 'package:nodelabscase/feature/view/mixin/auth/auth_common_view_mixin.dart';
 import 'package:nodelabscase/feature/view/mixin/auth/login_view_mixin.dart';
 import 'package:nodelabscase/feature/view/mixin/common_view_mixin.dart';
+import 'package:nodelabscase/feature/view/widget/custom_snackbar.dart';
 import 'package:nodelabscase/product/init/language/locale_keys.g.dart';
 import 'package:nodelabscase/product/navigation/app_router.dart';
+import 'package:nodelabscase/product/utility/constants/enums/response_type.dart';
 import 'package:nodelabscase/product/utility/extension/list_gutter_extension.dart';
 
 /// [LoginView] is a class that contains the login view.
@@ -105,13 +107,30 @@ final class _LoginViewState extends State<LoginView>
                           CustomElevatedButton(
                             // onPressed: () => isFormValid(loginFormKey),
                             onPressed: () async {
+                              if (!mounted) return;
                               // if (!isFormValid(loginFormKey)) return;
 
-                              final user = Login(
+                              final user = LoginRequest(
                                 email: 'safa@nodelabs.com',
                                 password: '123456',
                               );
-                              final res = await loginViewModel.login(user: user);
+                              final res = await loginViewModel.login(loginRequest: user);
+                              if (res.isSuccess) {
+                                await loginViewModel.setRememberMeToSP(
+                                  rememberMe: true,
+                                );
+
+                                await loginViewModel.setTokenToSP(
+                                    token: res.data?.data?.token ?? '');
+
+                                await context.router.push(const DashboardWrapperRoute());
+                              } else {
+                                CustomSnackbar.show(
+                                  context: context,
+                                  message: '..',
+                                  responseType: ResponseType.error,
+                                );
+                              }
                               log('Login response: $res');
                             },
                             child: Text(

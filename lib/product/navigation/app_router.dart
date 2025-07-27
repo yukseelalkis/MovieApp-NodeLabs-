@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:nodelabscase/feature/view/auth/auth_wrapper_view.dart';
 import 'package:nodelabscase/feature/view/auth/login_view.dart';
 import 'package:nodelabscase/feature/view/auth/sign_up_view.dart';
+import 'package:nodelabscase/feature/view/auth/splash_view.dart';
 import 'package:nodelabscase/feature/view/dashboard_wrapper_view.dart';
 import 'package:nodelabscase/feature/view/home_view.dart';
 import 'package:nodelabscase/feature/view/profile_view.dart';
@@ -15,8 +16,11 @@ final class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          page: AuthWrapperRoute.page,
+          page: SplashRoute.page,
           initial: true,
+        ),
+        AutoRoute(
+          page: AuthWrapperRoute.page,
           children: [
             AutoRoute(page: LoginRoute.page, initial: true),
             AutoRoute(page: SignUpRoute.page),

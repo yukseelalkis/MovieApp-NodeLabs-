@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:nodelabscase/product/init/cache/cache_manager.dart';
+import 'package:nodelabscase/product/utility/constants/enums/cache_allow_list.dart';
 
 @RoutePage()
 
@@ -20,10 +24,9 @@ final class _State extends State<HomeView> {
           Positioned.fill(
             child: Image.network(
               'https://images-na.ssl-images-amazon.com/images/M/MV5BMjEyOTYyMzUxNl5BMl5BanBnXkFtZTcwNTg0MTUzNA@@._V1_SX1500_CR0,0,1500,999_AL_.jpg',
-              fit: BoxFit.fitHeight,
+              fit: BoxFit.cover,
             ),
           ),
-          // Sayfa içeriğin buraya
           const SafeArea(
             child: Column(
               children: [
@@ -52,7 +55,11 @@ final class _State extends State<HomeView> {
                   ),
                 ),
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    final x =
+                        CacheManager.instance.getString(CacheAllowListEnum.token.name);
+                    log('x: $x');
+                  },
                   icon: const Icon(
                     Icons.favorite,
                     color: Colors.white,

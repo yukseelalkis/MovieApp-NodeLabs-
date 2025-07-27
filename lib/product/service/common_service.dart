@@ -49,56 +49,58 @@ final class CommonService with CommonServiceMixin {
   late String _baseUrl;
   late Dio _dio;
 
-  /// [getModel] method is generic method that is used to get data from the API.
-  /// [ApiResponse] is returned based on the response.
-  Future<ApiResponse<dynamic>> getModel<T extends BaseModel<T>>({
-    required String domain,
-    required T model,
-    Map<String, dynamic>? queryParameters,
-  }) async {
-    try {
-      final response = await _dio.get<dynamic>(
-        '$_baseUrl$domain',
-        queryParameters: queryParameters,
-      );
-      final responseCode = HttpResult.fromStatusCode(response.statusCode ?? -1);
-      final responseBody = response.data;
+  // /// [getModel] method is generic method that is used to get data from the API.
+  // /// [ApiResponse] is returned based on the response.
+  // Future<ApiResponse<dynamic>> getModel<T extends BaseModel<T>>({
+  //   required String domain,
+  //   required T model,
+  //   Map<String, dynamic>? queryParameters,
+  // }) async {
+  //   try {
+  //     final response = await _dio.get<dynamic>(
+  //       '$_baseUrl$domain',
+  //       queryParameters: queryParameters,
+  //     );
+  //     final responseCode = HttpResult.fromStatusCode(response.statusCode ?? -1);
+  //     final responseBody = response.data;
 
-      switch (responseCode) {
-        case HttpResult.success:
-          if (responseBody is List) {
-            final data = responseBody
-                .map((e) => model.fromJson(e as Map<String, dynamic>))
-                .toList();
-            return ApiResponse<List<T>>.success(data: data);
-          } else if (responseBody is Map) {
-            final data = model.fromJson(responseBody.cast<String, dynamic>());
-            return ApiResponse<T>.success(data: data);
-          }
+  //     switch (responseCode) {
+  //       case HttpResult.success:
+  //         if (responseBody is List) {
+  //           final data = responseBody
+  //               .map((e) => model.fromJson(e as Map<String, dynamic>))
+  //               .toList();
+  //           return ApiResponse<List<T>>.success(data: data);
+  //         } else if (responseBody is Map) {
+  //           final data = model.fromJson(responseBody.cast<String, dynamic>());
+  //           return ApiResponse<T>.success(data: data);
+  //         }
 
-          return ApiResponse.failure(
-            data: responseBody,
-            result: HttpResult.unknown,
-            error: LocaleKeys.error_unknown_response_type.tr(),
-          );
+  //         return ApiResponse.failure(
+  //           data: responseBody,
+  //           result: HttpResult.unknown,
+  //           error: LocaleKeys.error_unknown_response_type.tr(),
+  //         );
 
-        default:
-          return ApiResponse.failure(data: responseBody, result: responseCode);
-      }
-    } catch (e) {
-      Logger().e(e);
-      return ApiResponse.failure(
-        error: e.toString(),
-        result: HttpResult.unknown,
-      );
-    }
-  }
+  //       default:
+  //         return ApiResponse.failure(data: responseBody, result: responseCode);
+  //     }
+  //   } catch (e) {
+  //     Logger().e(e);
+  //     return ApiResponse.failure(
+  //       error: e.toString(),
+  //       result: HttpResult.unknown,
+  //     );
+  //   }
+  // }
 
   /// [postModel] method is a generic method that is used to send data to the API.
   /// [ApiResponse] is returned based on the response.
-  Future<ApiResponse<dynamic>> postModel<T extends BaseModel<T>>({
+  Future<ApiResponse<TResponse>> postModel<TRequest extends BaseModel, TResponse>({
     required String domain,
-    required T model,
+    required TRequest model,
+    required TResponse Function(Map<String, dynamic>) fromJson,
+    bool isList = false,
   }) async {
     try {
       final response = await _dio.post<dynamic>(
@@ -110,15 +112,14 @@ final class CommonService with CommonServiceMixin {
 
       switch (responseCode) {
         case HttpResult.success:
-          if (responseBody is Map) {
-            //TODO: data will be get dynamic response
-            final data = model.fromJson(responseBody.cast<String, dynamic>());
-            return ApiResponse<dynamic>.success(data: data);
-          } else if (responseBody is List) {
+          if (responseBody is Map && !isList) {
+            final data = fromJson(responseBody.cast<String, dynamic>());
+            return ApiResponse<TResponse>.success(data: data);
+          } else if (responseBody is List && isList) {
             final data = responseBody
-                .map((e) => model.fromJson(e as Map<String, dynamic>))
+                .map<TResponse>((e) => fromJson(e as Map<String, dynamic>))
                 .toList();
-            return ApiResponse<dynamic>.success(data: data);
+            return ApiResponse<TResponse>.success(data: data as TResponse);
           }
           return ApiResponse.failure(
             data: responseBody,
