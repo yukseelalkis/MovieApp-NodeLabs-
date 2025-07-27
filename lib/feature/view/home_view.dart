@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:ui' as ui;
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -9,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/src/model/movies.dart';
 import 'package:nodelabscase/feature/view/mixin/home_mixin.dart';
 import 'package:nodelabscase/feature/viewmodel/home_view_model.dart';
-import 'package:nodelabscase/feature/viewmodel/login_view_model.dart';
 import 'package:nodelabscase/product/init/language/locale_keys.g.dart';
 import 'package:nodelabscase/product/state/home_state.dart';
 import 'package:nodelabscase/product/utility/constants/enums/duration.dart';

@@ -15,3 +15,4 @@ export 'profile_data.dart';
 export 'profile_response.dart';
 export 'photo_upload_data.dart';
 export 'photo_upload_response.dart';
+export 'favorite_movie_response.dart';

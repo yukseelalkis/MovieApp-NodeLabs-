@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
-import 'package:nodelabscase/feature/view/mixin/auth/sign_up_view_mixin.dart';
-import 'package:nodelabscase/feature/view/mixin/common_view_mixin.dart';
 import 'package:nodelabscase/product/navigation/app_router.dart';
 import 'package:nodelabscase/product/utility/constants/enums/tab_name.dart';
 

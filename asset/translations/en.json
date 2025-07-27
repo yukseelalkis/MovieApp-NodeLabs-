@@ -57,11 +57,13 @@
     "upload_photo": "Upload Your Photos",
     "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "limited_offer": "Limited Offer",
-    "add_photo": "Add Photo"
+    "add_photo": "Add Photo",
+    "liked_movies": "Liked Movies"
   },
   "error": {
     "your_preferences_did_not_init_now": "Your preferences did not initialize now",
     "unknown_response_type": "An unknown response type was received",
-    "could_not_find_movie": "Could not find movie"
+    "could_not_find_movie": "Could not find movie",
+    "could_not_find_favorite_movies": "Could not find favorite movies"
   }
 }

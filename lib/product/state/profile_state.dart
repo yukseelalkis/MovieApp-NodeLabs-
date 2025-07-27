@@ -10,6 +10,7 @@ final class ProfileState extends BaseState {
     this.profile,
     this.profilePhoto,
     super.isLoading,
+    this.favoriteMovies,
   });
 
   @override
@@ -18,17 +19,24 @@ final class ProfileState extends BaseState {
       isLoading,
       profile,
       profilePhoto,
+      favoriteMovies,
     ]);
 
   final ProfileData? profile;
   final File? profilePhoto;
+  final List<Movie>? favoriteMovies;
 
   @override
-  ProfileState copyWith({bool? isLoading, ProfileData? profile, File? profilePhoto}) {
+  ProfileState copyWith(
+      {bool? isLoading,
+      ProfileData? profile,
+      File? profilePhoto,
+      List<Movie>? favoriteMovies}) {
     return ProfileState(
       profile: profile ?? this.profile,
       profilePhoto: profilePhoto ?? this.profilePhoto,
       isLoading: isLoading ?? this.isLoading,
+      favoriteMovies: favoriteMovies ?? this.favoriteMovies,
     );
   }
 }

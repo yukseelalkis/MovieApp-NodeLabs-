@@ -19,7 +19,6 @@ final class ProfileViewModel extends BaseCubit<ProfileState> {
   }
 
   Future<void> getProfile() async {
-    if (state.isLoading) return;
     _changeLoading();
     try {
       final response = await CommonService.instance.getModel(
@@ -43,8 +42,6 @@ final class ProfileViewModel extends BaseCubit<ProfileState> {
   }
 
   Future<void> updateProfilePhoto({required File newPhoto}) async {
-    if (state.isLoading) return;
-
     _changeLoading();
     try {
       final response = await CommonService.instance.uploadFile<PhotoUploadResponse>(
@@ -62,6 +59,28 @@ final class ProfileViewModel extends BaseCubit<ProfileState> {
       }
     } catch (e) {
       Logger().e('Error updating profile photo: $e');
+    } finally {
+      _changeLoading();
+    }
+  }
+
+  Future<void> getFavoriteMovies() async {
+    _changeLoading();
+
+    try {
+      final response = await CommonService.instance.getModel<FavoriteMoviesResponse>(
+        domain: DevEnv().getMovieFavoritesDomain,
+        fromJson: (json) => FavoriteMoviesResponse.fromJson(json),
+      );
+
+      if (response.isSuccess) {
+        emit(state.copyWith(favoriteMovies: response.data?.data));
+        Logger().i('Favorite movies fetched successfully: ${response.data}');
+      } else {
+        Logger().e('Failed to fetch favorite movies: ${response.error}');
+      }
+    } catch (e) {
+      Logger().e('Error fetching favorite movies: $e');
     } finally {
       _changeLoading();
     }

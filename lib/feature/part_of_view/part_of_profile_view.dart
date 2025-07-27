@@ -9,7 +9,6 @@ final class _ProfileListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileViewModel, ProfileState>(
       builder: (context, state) {
-        log('URL: ${state.profile?.photoUrl}');
         return ListTile(
           leading: CircleAvatar(
             radius: BorderRadiusManager.extraMoreBorderRadius.topLeft.x,
@@ -64,6 +63,7 @@ final class _ProfileAppBar extends StatelessWidget implements PreferredSizeWidge
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
+      forceMaterialTransparency: true,
       title: const Text(LocaleKeys.profile_profile_detail).tr(),
       actions: [
         Padding(

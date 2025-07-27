@@ -1,12 +1,8 @@
 import 'package:gen/gen.dart';
 import 'package:logger/logger.dart';
-import 'package:nodelabscase/product/init/cache/cache_manager.dart';
 import 'package:nodelabscase/product/service/common_service.dart';
 import 'package:nodelabscase/product/state/base/base_cubit.dart';
 import 'package:nodelabscase/product/state/home_state.dart';
-import 'package:nodelabscase/product/state/login_state.dart';
-import 'package:nodelabscase/product/utility/constants/enums/cache_allow_list.dart';
-import 'package:nodelabscase/product/utility/response/api_response.dart';
 
 /// [HomeViewModel] is the view model for the login view.
 final class HomeViewModel extends BaseCubit<HomeState> {

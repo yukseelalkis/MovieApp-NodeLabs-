@@ -60,10 +60,12 @@ abstract class  LocaleKeys {
   static const profile_lorem_ipsum = 'profile.lorem_ipsum';
   static const profile_limited_offer = 'profile.limited_offer';
   static const profile_add_photo = 'profile.add_photo';
+  static const profile_liked_movies = 'profile.liked_movies';
   static const profile = 'profile';
   static const error_your_preferences_did_not_init_now = 'error.your_preferences_did_not_init_now';
   static const error_unknown_response_type = 'error.unknown_response_type';
   static const error_could_not_find_movie = 'error.could_not_find_movie';
+  static const error_could_not_find_favorite_movies = 'error.could_not_find_favorite_movies';
   static const error = 'error';
 
 }

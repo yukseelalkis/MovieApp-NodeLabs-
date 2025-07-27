@@ -123,7 +123,10 @@ final class _LoginViewState extends State<LoginView>
                                 await loginViewModel.setTokenToSP(
                                     token: res.data?.data?.token ?? '');
 
-                                await context.router.push(const DashboardWrapperRoute());
+                                await context.router.pushAndPopUntil(
+                                  const DashboardWrapperRoute(),
+                                  predicate: (route) => false,
+                                );
                               } else {
                                 CustomSnackbar.show(
                                   context: context,
