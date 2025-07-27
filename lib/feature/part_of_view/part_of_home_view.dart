@@ -178,12 +178,6 @@ final class _FavoriteButton extends StatefulWidget {
 
 class _FavoriteButtonState extends State<_FavoriteButton> {
   @override
-  void initState() {
-    widget.homeViewModel.toggleFavorite(isFavorite: widget.isFavorite);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Positioned(
       bottom: context.deviceHeight * 0.1,
@@ -203,7 +197,7 @@ class _FavoriteButtonState extends State<_FavoriteButton> {
           ),
           child: BlocSelector<HomeViewModel, HomeState, bool>(
             selector: (state) {
-              return state.isFavorite;
+              return state.isFavorite || widget.isFavorite;
             },
             builder: (context, state) {
               return IconButton(
