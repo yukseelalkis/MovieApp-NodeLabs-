@@ -57,5 +57,8 @@ abstract class  LocaleKeys {
   static const profile_upload_photo = 'profile.upload_photo';
   static const profile_lorem_ipsum = 'profile.lorem_ipsum';
   static const profile = 'profile';
+  static const error_your_preferences_did_not_init_now = 'error.your_preferences_did_not_init_now';
+  static const error_unknown_response_type = 'error.unknown_response_type';
+  static const error = 'error';
 
 }

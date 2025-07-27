@@ -55,5 +55,9 @@
     "profile_detail": "Profil Detayı",
     "upload_photo": "Fotoğraflarınızı Yükleyin",
     "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  "error": {
+    "your_preferences_did_not_init_now": "Tercihleriniz şu anda başlatılmadı",
+    "unknown_response_type": "Bilinmeyen bir yanıt türü alındı"
   }
 }

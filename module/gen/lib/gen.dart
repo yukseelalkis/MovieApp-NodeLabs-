@@ -1,7 +1,2 @@
-library gen;
-
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/environment/index.dart';
+export 'src/model/index.dart';
