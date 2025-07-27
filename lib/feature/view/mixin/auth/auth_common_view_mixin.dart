@@ -1,7 +1,9 @@
 import 'package:common/common.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:nodelabscase/product/init/language/locale_keys.g.dart';
 import 'package:nodelabscase/product/utility/constants/lawai_regexp.dart';
 
 /// [AuthCommonViewMixin] is a [State] mixin that contains the login view logic.
@@ -32,17 +34,17 @@ mixin AuthCommonViewMixin<T extends StatefulWidget> on State<T> {
     super.dispose();
   }
 
-  // /// [emailValidator] is validator for email field
-  // String? emailValidator(String? value) => value.isBlank
-  //     ? LocaleKeys.authentication_email_required.tr()
-  //     : LawaiRegExp().emailRegexp.hasMatch(value!)
-  //         ? null
-  //         : LocaleKeys.authentication_valid_email.tr();
+  /// [emailValidator] is validator for email field
+  String? emailValidator(String? value) => value.isBlank
+      ? LocaleKeys.auth_email_required.tr()
+      : NodeLabsCaseRegExp().emailRegexp.hasMatch(value!)
+          ? null
+          : LocaleKeys.auth_valid_email.tr();
 
-  // /// [passwordValidator] is validator for password field
-  // String? passwordValidator(String? value) => value.isBlank
-  //     ? LocaleKeys.authentication_password_required.tr()
-  //     : LawaiRegExp().passwordRegexp.hasMatch(value!)
-  //         ? null
-  //         : LocaleKeys.authentication_valid_password.tr();
+  /// [passwordValidator] is validator for password field
+  String? passwordValidator(String? value) => value.isBlank
+      ? LocaleKeys.auth_password_required.tr()
+      : NodeLabsCaseRegExp().passwordRegexp.hasMatch(value!)
+          ? null
+          : LocaleKeys.auth_valid_password.tr();
 }

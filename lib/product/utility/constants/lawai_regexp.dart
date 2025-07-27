@@ -1,6 +1,6 @@
-/// [LawaiRegExp] is a class that contains all the regular expressions used
+/// [NodeLabsCaseRegExp] is a class that contains all the regular expressions used
 /// in the application
-final class LawaiRegExp {
+final class NodeLabsCaseRegExp {
   /// [emailRegexp] is regexp for email
   RegExp get emailRegexp => RegExp(
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
