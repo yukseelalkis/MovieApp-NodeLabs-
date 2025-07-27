@@ -20,7 +20,7 @@ final class SocialconButton extends StatelessWidget {
       width: deviceWidth * 0.20,
       height: deviceHeight * 0.09,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
+        color: Theme.of(context).colorScheme.onPrimary,
         border:
             Border.all(color: Colors.black.withOpacity(0.2), width: deviceWidth * 0.001),
         borderRadius: BorderRadiusManager.moreBorderRadius,

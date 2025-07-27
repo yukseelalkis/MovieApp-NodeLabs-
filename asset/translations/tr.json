@@ -5,11 +5,9 @@
     "subtitle": "Tempus varius a vitae interdum id tortor elementum tristique elefend at.",
     "email": "E-posta",
     "password": "Şifre",
-    "name": "İsim",
-    "surname": "Soyisim",
+    "fullname": "Ad-Soyad",
     "confirm_password": "Şifreyi Onayla",
-    "name_required": "İsim alanı boş bırakılamaz",
-    "surname_required": "Soyisim alan boş bırakılamaz",
+    "fullname_required": "Ad-soyad alanı boş bırakılamaz",
     "login_required": "Giriş yapmalısınız",
     "email_required": "E-posta alanı boş bırakılamaz",
     "password_required": "Şifre alanı boş bırakılamaz",
@@ -17,8 +15,7 @@
     "old_password_placeholder": "Mevcut şifrenizi girin",
     "password_placeholder": "Şifrenizi girin",
     "confirm_password_placeholder": "Şifrenizi tekrar girin",
-    "name_placeholder": "Adınızı girin",
-    "surname_placeholder": "Soyadınızı girin",
+    "fullname_placeholder": "Adınızı girin",
     "register": "Kayıt Ol",
     "remember_me": "Beni Hatırla",
     "forgot_password": "Şifremi Unuttum",
@@ -45,6 +42,10 @@
     "wrong_password": "Yanlış şifre",
     "register_success": "Kayıt başarılı",
     "logout": "Çıkış Yap",
-    "do_not_have_an_account": "Bir hesabın yok mu?"
+    "do_not_have_an_account": "Bir hesabın yok mu?",
+    "agreement_text": "Kullanıcı sözleşmesini ",
+    "please_read_and_agree": " Bu sözleşmeyi okuyarak devam ediniz.",
+    "i_have_read_and_agree": "okudum ve kabul ediyorum.",
+    "i_have_already_have_an_account": "Zaten hesabım var"
   }
 }

@@ -8,11 +8,9 @@ abstract class  LocaleKeys {
   static const auth_subtitle = 'auth.subtitle';
   static const auth_email = 'auth.email';
   static const auth_password = 'auth.password';
-  static const auth_name = 'auth.name';
-  static const auth_surname = 'auth.surname';
+  static const auth_fullname = 'auth.fullname';
   static const auth_confirm_password = 'auth.confirm_password';
-  static const auth_name_required = 'auth.name_required';
-  static const auth_surname_required = 'auth.surname_required';
+  static const auth_fullname_required = 'auth.fullname_required';
   static const auth_login_required = 'auth.login_required';
   static const auth_email_required = 'auth.email_required';
   static const auth_password_required = 'auth.password_required';
@@ -20,8 +18,7 @@ abstract class  LocaleKeys {
   static const auth_old_password_placeholder = 'auth.old_password_placeholder';
   static const auth_password_placeholder = 'auth.password_placeholder';
   static const auth_confirm_password_placeholder = 'auth.confirm_password_placeholder';
-  static const auth_name_placeholder = 'auth.name_placeholder';
-  static const auth_surname_placeholder = 'auth.surname_placeholder';
+  static const auth_fullname_placeholder = 'auth.fullname_placeholder';
   static const auth_register = 'auth.register';
   static const auth_remember_me = 'auth.remember_me';
   static const auth_forgot_password = 'auth.forgot_password';
@@ -49,6 +46,10 @@ abstract class  LocaleKeys {
   static const auth_register_success = 'auth.register_success';
   static const auth_logout = 'auth.logout';
   static const auth_do_not_have_an_account = 'auth.do_not_have_an_account';
+  static const auth_agreement_text = 'auth.agreement_text';
+  static const auth_please_read_and_agree = 'auth.please_read_and_agree';
+  static const auth_i_have_read_and_agree = 'auth.i_have_read_and_agree';
+  static const auth_i_have_already_have_an_account = 'auth.i_have_already_have_an_account';
   static const auth = 'auth';
 
 }

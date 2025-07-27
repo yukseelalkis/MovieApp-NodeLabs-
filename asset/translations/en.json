@@ -5,11 +5,9 @@
     "subtitle": "Tempus varius a vitae interdum id tortor elementum tristique elefend at.",
     "email": "E-mail",
     "password": "Password",
-    "name": "Name",
-    "surname": "Surname",
+    "fullname": "Full Name",
     "confirm_password": "Confirm Password",
-    "name_required": "Name field cannot be empty",
-    "surname_required": "Surname field cannot be empty",
+    "fullname_required": "Name and surname field cannot be empty",
     "login_required": "You must be logged in to access this page",
     "email_required": "E-mail field cannot be empty",
     "password_required": "Password field cannot be empty",
@@ -17,8 +15,7 @@
     "password_placeholder": "Enter your password",
     "old_password_placeholder": "Enter your current password",
     "confirm_password_placeholder": "Confirm your password",
-    "name_placeholder": "Enter your name",
-    "surname_placeholder": "Enter your surname",
+    "fullname_placeholder": "Enter your full name",
     "register": "Sign Up",
     "remember_me": "Remember Me",
     "forgot_password": "Forgot Password",
@@ -45,6 +42,9 @@
     "wrong_password": "Wrong password",
     "register_success": "Registration successful",
     "logout": "Logout",
-    "do_not_have_an_account": "Don't have an account?"
+    "agreement_text": "By signing up, you agree to the ",
+    "please_read_and_agree": " Please read and agree to this agreement.",
+    "i_have_read_and_agree": "I have read and agree.",
+    "i_have_already_have_an_account": "I already have an account"
   }
 }
