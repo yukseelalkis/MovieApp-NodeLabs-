@@ -55,7 +55,9 @@
   "profile": {
     "profile_detail": "Profile Detail",
     "upload_photo": "Upload Your Photos",
-    "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "limited_offer": "Limited Offer",
+    "add_photo": "Add Photo"
   },
   "error": {
     "your_preferences_did_not_init_now": "Your preferences did not initialize now",

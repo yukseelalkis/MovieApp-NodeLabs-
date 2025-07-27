@@ -10,6 +10,25 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [AddingProfilePhotoView]
+class AddingProfilePhotoRoute extends PageRouteInfo<void> {
+  const AddingProfilePhotoRoute({List<PageRouteInfo>? children})
+      : super(
+          AddingProfilePhotoRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AddingProfilePhotoRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const AddingProfilePhotoView();
+    },
+  );
+}
+
+/// generated route for
 /// [AuthWrapperView]
 class AuthWrapperRoute extends PageRouteInfo<void> {
   const AuthWrapperRoute({List<PageRouteInfo>? children})
@@ -100,6 +119,25 @@ class ProfileRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const ProfileView();
+    },
+  );
+}
+
+/// generated route for
+/// [ProfileWrapperView]
+class ProfileWrapperRoute extends PageRouteInfo<void> {
+  const ProfileWrapperRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileWrapperRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileWrapperRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ProfileWrapperView();
     },
   );
 }

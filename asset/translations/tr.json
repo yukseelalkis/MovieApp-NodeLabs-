@@ -56,7 +56,9 @@
   "profile": {
     "profile_detail": "Profil Detayı",
     "upload_photo": "Fotoğraflarınızı Yükleyin",
-    "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "limited_offer": "Sınırlı Teklif",
+    "add_photo": "Fotoğraf Ekle"
   },
   "error": {
     "your_preferences_did_not_init_now": "Tercihleriniz şu anda başlatılmadı",

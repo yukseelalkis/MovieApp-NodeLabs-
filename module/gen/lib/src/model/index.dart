@@ -11,3 +11,5 @@ export 'movie_data.dart';
 export 'movies.dart';
 export 'favorite_data.dart';
 export 'favorite_response.dart';
+export 'profile_data.dart';
+export 'profile_response.dart';

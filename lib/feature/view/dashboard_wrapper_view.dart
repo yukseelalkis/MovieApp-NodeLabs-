@@ -9,7 +9,7 @@ import 'package:nodelabscase/product/utility/constants/enums/tab_name.dart';
 @RoutePage()
 
 /// [DashboardWrapperView] is a class that contains the dashboard wrapper view.
-class DashboardWrapperView extends StatefulWidget {
+final class DashboardWrapperView extends StatefulWidget {
   /// Constructor
   const DashboardWrapperView({super.key});
 
@@ -23,7 +23,7 @@ class _DashboardWrapperViewState extends State<DashboardWrapperView> {
     return AutoTabsRouter(
       routes: const [
         HomeRoute(),
-        ProfileRoute(),
+        ProfileWrapperRoute(),
       ],
       builder: (context, child) {
         return Scaffold(

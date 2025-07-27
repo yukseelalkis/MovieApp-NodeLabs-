@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:common/common.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:nodelabscase/product/utility/extension/list_gutter_extension.dar
 
 part '../part_of_view/part_of_adding_profile_photo_view.dart';
 
+@RoutePage()
 final class AddingProfilePhotoView extends StatefulWidget {
   const AddingProfilePhotoView({super.key});
 
