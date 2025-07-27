@@ -98,8 +98,8 @@ final class _SignUpViewState extends State<SignUpView>
                         CustomTextFormField(
                           controller: confirmPasswordController,
                           prefixIcon: const Icon(Icons.lock_outline),
-                          labelText: LocaleKeys.auth_password.tr(),
-                          hintText: LocaleKeys.auth_password_placeholder.tr(),
+                          labelText: LocaleKeys.auth_confirm_password.tr(),
+                          hintText: LocaleKeys.auth_confirm_password_placeholder.tr(),
                           keyboardType: TextInputType.visiblePassword,
                           textInputAction: TextInputAction.next,
                           suffixIcon: IconButton(
