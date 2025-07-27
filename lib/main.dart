@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:nodelabscase/feature/view/adding_profile_photo_view.dart';
 import 'package:nodelabscase/feature/view/auth/login_view.dart';
 import 'package:nodelabscase/feature/view/auth/sign_up_view.dart';
 import 'package:nodelabscase/product/init/language/product_localization.dart';
@@ -19,7 +20,7 @@ final class NodeLabsCase extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: NodeLabs.nodelabscase.name,
-      home: const SignUpView(),
+      home: const AddingProfilePhotoView(),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,

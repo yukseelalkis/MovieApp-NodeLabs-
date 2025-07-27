@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nodelabscase/feature/view/mixin/auth/auth_common_view_mixin.dart';
 import 'package:nodelabscase/feature/view/mixin/auth/login_view_mixin.dart';
 import 'package:nodelabscase/feature/view/mixin/common_view_mixin.dart';
+import 'package:nodelabscase/feature/view/widget/auth_label.dart';
 import 'package:nodelabscase/product/init/language/locale_keys.g.dart';
 import 'package:nodelabscase/product/utility/extension/list_gutter_extension.dart';
 
@@ -97,7 +98,7 @@ final class _LoginViewState extends State<LoginView>
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         CustomElevatedButton(
-                          onPressed: () {},
+                          onPressed: () => isFormValid(loginFormKey),
                           child: Text(
                             LocaleKeys.auth_login.tr(),
                             style: Theme.of(context)

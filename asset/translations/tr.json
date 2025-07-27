@@ -47,5 +47,13 @@
     "please_read_and_agree": " Bu sözleşmeyi okuyarak devam ediniz.",
     "i_have_read_and_agree": "okudum ve kabul ediyorum.",
     "i_have_already_have_an_account": "Zaten hesabım var"
+  },
+  "common": {
+    "continue": "Devam Et"
+  },
+  "profile": {
+    "profile_detail": "Profil Detayı",
+    "upload_photo": "Fotoğraflarınızı Yükleyin",
+    "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   }
 }

@@ -46,5 +46,13 @@
     "please_read_and_agree": " Please read and agree to this agreement.",
     "i_have_read_and_agree": "I have read and agree.",
     "i_have_already_have_an_account": "I already have an account"
+  },
+  "common": {
+    "continue": "Continue"
+  },
+  "profile": {
+    "profile_detail": "Profile Detail",
+    "upload_photo": "Upload Your Photos",
+    "lorem_ipsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   }
 }

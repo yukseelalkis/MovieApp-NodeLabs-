@@ -51,5 +51,11 @@ abstract class  LocaleKeys {
   static const auth_i_have_read_and_agree = 'auth.i_have_read_and_agree';
   static const auth_i_have_already_have_an_account = 'auth.i_have_already_have_an_account';
   static const auth = 'auth';
+  static const common_continue = 'common.continue';
+  static const common = 'common';
+  static const profile_profile_detail = 'profile.profile_detail';
+  static const profile_upload_photo = 'profile.upload_photo';
+  static const profile_lorem_ipsum = 'profile.lorem_ipsum';
+  static const profile = 'profile';
 
 }

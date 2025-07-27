@@ -116,7 +116,7 @@ final class _SignUpViewState extends State<SignUpView>
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         CustomElevatedButton(
-                          onPressed: () {},
+                          onPressed: () => isFormValid(signupFormKey),
                           child: Text(
                             LocaleKeys.auth_register.tr(),
                             style: Theme.of(context)
