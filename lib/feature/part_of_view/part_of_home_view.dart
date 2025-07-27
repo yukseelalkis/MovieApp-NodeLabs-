@@ -178,6 +178,12 @@ final class _FavoriteButton extends StatefulWidget {
 
 class _FavoriteButtonState extends State<_FavoriteButton> {
   @override
+  void initState() {
+    widget.homeViewModel.toggleFavorite(isFavorite: widget.isFavorite);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Positioned(
       bottom: context.deviceHeight * 0.1,
@@ -207,7 +213,7 @@ class _FavoriteButtonState extends State<_FavoriteButton> {
                 },
                 icon: Icon(
                   Icons.favorite,
-                  color: widget.isFavorite || state
+                  color: state
                       ? Theme.of(context).colorScheme.tertiary
                       : Theme.of(context).colorScheme.primary,
                   size: context.deviceWidth * 0.06,
